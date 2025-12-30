@@ -1,0 +1,12 @@
+--bg-primary: #0f1115
+  --bg-secondary: #161a22;
+  --bg-elevated: #1f2430;
+
+  --text-primary: #e6eaf2;
+  --text-secondary: #a0a8b8;
+  --text-muted: #6b7280;
+
+  --accent-primary: #4f8cff;
+  --accent-hover: #3a76e0;
+
+  --border-color: #262b36;
