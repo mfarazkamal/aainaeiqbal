@@ -29,7 +29,7 @@ function Hero() {
           </p>
 
           <div className="m-6 flex justify-center gap-6 text-[2rem]">
-            <button className="px-6 pb-2 border rounded-sm bg-[#e6eaf2] hover:bg-[#1f2430] hover:text-white ">
+            <button className="px-6 pb-2 border rounded-md bg-[#e6eaf2] hover:bg-[#1f2430] hover:text-white ">
               <a href="https://forms.gle/fPxL99bGU8dGKSqYA" target="_blank">
                 {" "}
                 معاون/Contribute
