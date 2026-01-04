@@ -4,7 +4,7 @@ function LifeofAllamaIqbal() {
   const [page, setPage] = useState(null);
 
   useEffect(() => {
-    fetch("https://aainaeiqbal.co.in/wp-json/wp/v2/pages/934")
+    fetch("https://api.aainaeiqbal.co.in/wp-json/wp/v2/pages/934")
       .then((res) => res.json())
       .then((data) => {
         setPage(data);

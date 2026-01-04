@@ -13,7 +13,7 @@ function App() {
 
   const getPosts = async () => {
     const response = await axios.get(
-      "https://aainaeiqbal.co.in/wp-json/wp/v2/posts?_embed&per_page=12"
+      "https://api.aainaeiqbal.co.in/wp-json/wp/v2/posts?_embed&per_page=12"
     );
     setPosts(response.data);
   };
