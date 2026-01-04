@@ -74,9 +74,9 @@ function Hero() {
         {/* Footer Buttons */}
         <div className="flex flex-col md:flex-row justify-center gap-4">
           <button className="bg-[#2a2a2a] hover:bg-[#1a1a1a] transition-colors py-3 px-12 rounded cursor-pointer text-xl border border-gray-600">
-            <a target="_blank" href="https://forms.gle/fPxL99bGU8dGKSqYA">
+            <Link to={"https://aainaeiqbal.co.in/life-of-dr-allama-iqbal/"}>
               Life of Allama Iqbal / علامہ اقبال کی زندگی
-            </a>
+            </Link>
           </button>
           <button className="bg-[#2a2a2a] hover:bg-[#1a1a1a] transition-colors py-3 px-12 rounded cursor-pointer text-xl border border-gray-600">
             <Link to="/posts">Special Posts/ خصوصی پوسٹز</Link>

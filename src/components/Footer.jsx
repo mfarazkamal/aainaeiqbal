@@ -1,14 +1,8 @@
 import React from 'react';
+import { Link } from "react-router-dom";
 
-const Footer = () => {
-  // Dummy data for WordPress posts
-  const latestPosts = [
-    { id: 1, title: "Bang-e-Dara: An Introduction", link: "#" },
-    { id: 2, title: "Concept of Khudi (Selfhood)", link: "#" },
-    { id: 3, title: "Iqbal's Vision of Youth", link: "#" },
-    { id: 4, title: "The Message of Bal-e-Jibril", link: "#" },
-    { id: 5, title: "Historical Context of Allahabad Address", link: "#" },
-  ];
+
+const Footer = ({posts}) => {
 
   return (
     <footer className="bg-[#373434] p-6 md:p-10 ">
@@ -28,10 +22,10 @@ const Footer = () => {
         <div className="bg-[#B3B3B3] p-6 rounded-lg flex flex-col items-center">
           <h2 className="text-3xl font-mono mb-6">Latest Posts</h2>
           <ul className="w-full space-y-3">
-            {latestPosts.map((post) => (
+            {posts.slice(0, 6).map((post) => (
               <li key={post.id} className="text-center">
                 <a href={post.link} className="hover:underline text-lg block border-b border-gray-400 pb-1">
-                  {post.title}
+                  {post.title.rendered}
                 </a>
               </li>
             ))}
@@ -52,13 +46,15 @@ const Footer = () => {
           {/* Navigation Buttons Stack */}
           <div className="w-full flex flex-col gap-3">
             <button className="w-full py-3 cursor-pointer bg-[#373434] text-white rounded-lg hover:bg-black transition-colors">
-              All Posts
+              <Link to={"/posts"}>Posts</Link>
             </button>
             <button className="w-full py-3 cursor-pointer bg-[#373434] text-white rounded-lg hover:bg-black transition-colors">
-              Life of Allama Iqbal
+              <Link to={"https://aainaeiqbal.co.in/life-of-dr-allama-iqbal/"}>Life of Allama Iqbal</Link>
             </button>
             <button className="w-full py-3 cursor-pointer bg-[#373434] text-white rounded-lg hover:bg-black transition-colors flex justify-center gap-2">
-              Contribute / <span>معاون</span>
+              <a target="_blank" href="https://forms.gle/fPxL99bGU8dGKSqYA">
+                Contribute / <span>معاون</span>
+              </a>
             </button>
           </div>
         </div>

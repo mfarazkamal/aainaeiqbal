@@ -11,11 +11,12 @@ import Footer from "./components/Footer";
 function App() {
   const [posts, setPosts] = useState([]);
 
-  const getPosts = async() =>{
-    const response = await axios.get("https://aainaeiqbal.co.in/wp-json/wp/v2/posts?_embed");
-    
+  const getPosts = async () => {
+    const response = await axios.get(
+      "https://aainaeiqbal.co.in/wp-json/wp/v2/posts?_embed&per_page=12"
+    );
     setPosts(response.data);
-  }
+  };
 
   useEffect(() => {
     getPosts();
@@ -31,7 +32,7 @@ function App() {
         <Route path="/posts" element={<Posts posts={posts} />} />
         {/* <Route path="/lifeOfAllamaIqbal" element={<LifeOfAllamaIqbal />} /> */}
       </Routes>
-      <Footer />
+      <Footer posts={posts} />
     </div>
   );
 }
