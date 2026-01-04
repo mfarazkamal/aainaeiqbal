@@ -5,16 +5,20 @@ import Posts from "./pages/Posts";
 // import LifeOfAllamaIqbal from "./pages/LifeOfAllamaIqbal";
 import Home from "./pages/Home";
 import { useEffect, useState } from "react";
+import axios from "axios";
+import Footer from "./components/Footer";
 
 function App() {
   const [posts, setPosts] = useState([]);
 
+  const getPosts = async() =>{
+    const response = await axios.get("https://aainaeiqbal.co.in/wp-json/wp/v2/posts?_embed");
+    
+    setPosts(response.data);
+  }
+
   useEffect(() => {
-    fetch("https://aainaeiqbal.co.in/wp-json/wp/v2/posts?_embed")
-      .then((res) => res.json())
-      .then((data) => {
-        setPosts(data);
-      });
+    getPosts();
   }, []);
 
   return (
@@ -27,6 +31,7 @@ function App() {
         <Route path="/posts" element={<Posts posts={posts} />} />
         {/* <Route path="/lifeOfAllamaIqbal" element={<LifeOfAllamaIqbal />} /> */}
       </Routes>
+      <Footer />
     </div>
   );
 }
