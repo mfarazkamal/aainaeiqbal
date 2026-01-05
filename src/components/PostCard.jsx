@@ -9,7 +9,6 @@ function PostCard({ posts }) {
         <div className="max-w-7xl mx-auto">
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8 border border-gray-600 p-6 rounded-lg">
             {posts.map((post, index) => {
-              console.log(post);
 
               const featuredImage =
                 post._embedded?.["wp:featuredmedia"]?.[0]?.link;

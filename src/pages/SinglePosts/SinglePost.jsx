@@ -5,6 +5,7 @@ import './PostStyles.css'; // Custom CSS for WP content
 import dayjs from 'dayjs';
 
 const SinglePost = () => {
+  <title>Aaina e Iqbal</title>
   const { slug } = useParams();
   console.log(slug);
   
@@ -16,17 +17,20 @@ const SinglePost = () => {
     const fetchFullData = async () => {
       try {
         // Fetch current post with embedding
-        const res = await axios.get(`https://api.aainaeiqbal.co.in/wp-json/wp/v2/posts?slug=${slug}&_embed`);
+        const [res, sidebarRes] = await Promise.all([
+        axios.get(`https://api.aainaeiqbal.co.in/wp-json/wp/v2/posts?slug=${slug}&_embed`),
+        axios.get(`https://api.aainaeiqbal.co.in/wp-json/wp/v2/posts?per_page=3&_embed`)
+      ]);
         const data = res.data[0];
-        setPost(data);
-
         // Fetch 2 random/recent posts for the sidebar cards
-        const sidebarRes = await axios.get(`https://api.aainaeiqbal.co.in/wp-json/wp/v2/posts?per_page=4&_embed`);
+        
+        setPost(data);
         setSidebarPosts(sidebarRes.data);
         
-        setLoading(false);
       } catch (err) {
         console.error("Error fetching post:", err);
+      } finally {
+        setLoading(false);
       }
     };
     fetchFullData();

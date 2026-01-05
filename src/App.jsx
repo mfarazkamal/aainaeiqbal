@@ -11,20 +11,21 @@ import SinglePost from "./pages/SinglePosts/SinglePost";
 
 function App() {
   const [posts, setPosts] = useState([]);
+  const timestamp = new Date().getTime();
+  const baseURL =
+    "https://api.aainaeiqbal.co.in/wp-json/wp/v2/posts?_embed&per_page=12";
 
   useEffect(() => {
     const getPosts = async () => {
       try {
-        const response = await axios.get(
-          "https://api.aainaeiqbal.co.in/wp-json/wp/v2/posts?_embed&per_page=12"
-        );
+        const response = await axios.get(`${baseURL}&_embed&t=${timestamp}`);
         setPosts(response.data);
       } catch (error) {
         console.error("Error fetching posts:", error);
       }
     };
     getPosts();
-  }, []);
+  }, [timestamp]);
 
   return (
     <div>
@@ -34,7 +35,7 @@ function App() {
         <Route path="/" element={<Home posts={posts} />} />
         <Route path="/about" element={<About />} />
         <Route path="/posts" element={<Posts posts={posts} />} />
-        <Route path="/post/:slug" element={<SinglePost />} />
+        <Route path="/post/:slug" element={<SinglePost posts={posts} />} />
         {/* <Route path="/lifeOfAllamaIqbal" element={<LifeOfAllamaIqbal />} /> */}
       </Routes>
       <Footer posts={posts} />
