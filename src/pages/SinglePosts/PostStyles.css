@@ -1,0 +1,77 @@
+/* Styling for WordPress Content Injection */
+.wp-content-render p {
+  margin-bottom: 1rem;
+  color: #e5e7eb; /* Light grey text */
+  text-align: justify;
+  font-size: 1.8rem;
+  direction: rtl;
+}
+
+.wp-content-render h2,
+.wp-content-render h3 {
+  color: #ffffff;
+  margin-top: 2rem;
+  margin-bottom: 1rem;
+  text-align: center;
+  background-color: rgb(42, 41, 41);
+  padding: 0.5rem 0;
+  font-size: 2.2rem;
+  border-radius: 100px;
+  border: 1px solid #6b7280;
+}
+
+.wp-content-render h4 {
+  color: #ffffff;
+  text-align: center;
+  background-color: rgb(77, 81, 85);
+  width: fit-content;
+  margin: 1.5rem auto;
+  padding: 0 3rem 0.5rem 3rem;
+  border-radius: 10px 20px 30px 40px;
+  font-size: large;
+}
+
+.wp-content-render h6 {
+  text-align: center;
+  font-size: 1.8rem;
+}
+.wp-content-render hr {
+  visibility: hidden;
+}
+
+.wp-content-render span {
+  display: inline-block;
+  line-height: 1.8;
+}
+
+.font-urdu {
+  font-family: "JameelNoori", "Noto Nastaliq Urdu", serif;
+  /* direction: rtl; */
+}
+
+/* .dir-rtl {
+      direction: rtl;
+    } */
+
+@media (max-width: 768px) {
+  .wp-content-render h2,
+  .wp-content-render h3 {
+    font-size: 2rem;
+    padding: 0.5rem 0;
+    border-radius: 10px;
+    border: 1px solid #6b7280;
+  }
+
+  .wp-content-render p {
+    font-size: 1.5rem;
+    text-align: justify;
+    direction: rtl;
+  }
+  .wp-content-render h6 {
+    text-align: center;
+    font-size: 1.5rem;
+  }
+  .wp-content-render h4 {
+  font-size: medium;
+}
+}

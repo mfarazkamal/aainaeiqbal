@@ -2,7 +2,7 @@ import { Link } from "react-router-dom";
 
 function Navbar() {
   return (
-    <div className="flex justify-around h-20 items-center p-2 mb-4 bg-[#373434] text-white border-b-4 border-gray-300 ">
+    <div className="flex justify-around h-20 items-center p-2 mb-4 mt-1 bg-[#373434] text-white ">
       <div>
         <Link to={"/"}>
           <h1 className="uppercase tracking-wider text-3xl font-bold cursor-pointer">

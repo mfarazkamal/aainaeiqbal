@@ -2,7 +2,7 @@ import { Link } from "react-router-dom";
 
 function Hero() {
   return (
-    <section className="bg-[#373434]  p-6 md:p-12 text-white">
+    <section className="bg-[#373434]  p-6 md:p-12 text-white border-t-4 border-gray-300 mb-8">
       <div className="max-w-7xl mx-auto">
         {/* Top Section: Heading and First Card */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">

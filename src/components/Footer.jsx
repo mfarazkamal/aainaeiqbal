@@ -1,19 +1,18 @@
-import React from 'react';
+import React from "react";
 import { Link } from "react-router-dom";
 
-
-const Footer = ({posts}) => {
-
+const Footer = ({ posts }) => {
   return (
     <footer className="bg-[#373434] p-6 md:p-10 ">
       <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-3 justify-between gap-6">
-        
         {/* Card 1: Branding & Image */}
         <div className="bg-[#B3B3B3] p-6 rounded-lg flex flex-col items-center text-center">
           <h2 className="text-3xl  mb-1">آئینہ اقبال</h2>
-          <p className="text-lg font-medium mb-4">Reflection of Knowledge Towards Reality</p>
+          <p className="text-lg font-medium mb-4">
+            Reflection of Knowledge Towards Reality
+          </p>
           <div className="w-full h-60 bg-[#545454] rounded-md overflow-hidden flex items-start justify-center">
-             {/* Replace with actual <img> tag */}
+            {/* Replace with actual <img> tag */}
             <img src="./cover.png" alt="" />
           </div>
         </div>
@@ -24,7 +23,10 @@ const Footer = ({posts}) => {
           <ul className="w-full space-y-3">
             {posts.slice(0, 6).map((post) => (
               <li key={post.id} className="text-center">
-                <a href={post.link} className="hover:underline text-lg block border-b border-gray-400 pb-1">
+                <a
+                  href={post.link}
+                  className="hover:underline text-lg block border-b border-gray-400 pb-1"
+                >
                   {post.title.rendered}
                 </a>
               </li>
@@ -34,13 +36,21 @@ const Footer = ({posts}) => {
 
         {/* Card 3: Social & Navigation */}
         <div className="bg-[#B3B3B3] p-6 rounded-lg flex flex-col items-center">
-          <p className="font-bold mb-4 uppercase tracking-wider">Share Buttons</p>
-          
+          <p className="font-bold mb-4 uppercase tracking-wider">
+            Social Media Pages
+          </p>
+
           {/* Social Icons Row */}
           <div className="flex gap-3 mb-6">
-            <button className="w-16 cursor-pointer h-16 bg-[#373434] text-white rounded-lg text-xs flex items-center justify-center px-1">whatsapp</button>
-            <button className="w-16 cursor-pointer h-16 bg-[#373434] text-white rounded-lg text-sm flex items-center justify-center">FB</button>
-            <button className="w-16 cursor-pointer h-16 bg-[#373434] text-white rounded-lg text-sm flex items-center justify-center">Insta</button>
+            <button className="w-16 cursor-pointer h-16 bg-[#373434] text-white rounded-lg text-xs flex items-center justify-center px-1">
+              WhatsApp
+            </button>
+            <button className="w-16 cursor-pointer h-16 bg-[#373434] text-white rounded-lg text-sm flex items-center justify-center">
+              FB
+            </button>
+            <button className="w-16 cursor-pointer h-16 bg-[#373434] text-white rounded-lg text-sm flex items-center justify-center">
+              Insta
+            </button>
           </div>
 
           {/* Navigation Buttons Stack */}
@@ -49,7 +59,9 @@ const Footer = ({posts}) => {
               <Link to={"/posts"}>Posts</Link>
             </button>
             <button className="w-full py-3 cursor-pointer bg-[#373434] text-white rounded-lg hover:bg-black transition-colors">
-              <Link to={"https://aainaeiqbal.co.in/life-of-dr-allama-iqbal/"}>Life of Allama Iqbal</Link>
+              <Link to={"https://aainaeiqbal.co.in/life-of-dr-allama-iqbal/"}>
+                Life of Allama Iqbal
+              </Link>
             </button>
             <button className="w-full py-3 cursor-pointer bg-[#373434] text-white rounded-lg hover:bg-black transition-colors flex justify-center gap-2">
               <a target="_blank" href="https://forms.gle/fPxL99bGU8dGKSqYA">
@@ -58,7 +70,6 @@ const Footer = ({posts}) => {
             </button>
           </div>
         </div>
-
       </div>
     </footer>
   );

@@ -1,6 +1,6 @@
 import dayjs from "dayjs";
 import { sanitizeExcerpt } from "../utils/sanitizeExcerpt";
-import { Link } from "react-router-dom";
+import { Link, Links } from "react-router-dom";
 
 function PostCard({ posts }) {
   return (
@@ -36,7 +36,7 @@ function PostCard({ posts }) {
 
                   {/* Title */}
                   <div className="bg-[#4a4a4a] py-2 px-4 text-3xl rounded text-center text-white ">
-                    <Link to={post.link}>{post.title.rendered}</Link>
+                    <Link to={`/post/${post.slug}`}>{post.title.rendered}</Link>
                   </div>
 
                   {/* Excerpt */}
@@ -47,7 +47,7 @@ function PostCard({ posts }) {
                   {/* Bottom Row: Link and Date */}
                   <div className="flex justify-between items-center mt-auto pt-2">
                     <button className="bg-[#373434] text-white px-4 py-2 rounded text-md hover:bg-black transition">
-                      <a href={post.link}>تشریح پڑھیں</a>
+                      <Link to={`/post/${post.slug}`}>تشریح پڑھیں</Link>
                     </button>
                     <span className="bg-[#373434] text-gray-400 px-4 py-2 rounded text-md">
                       {dayjs(post.date).format("DD MMM, YYYY")}
