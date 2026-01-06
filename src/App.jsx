@@ -8,6 +8,7 @@ import { useEffect, useState } from "react";
 import axios from "axios";
 import Footer from "./components/Footer";
 import SinglePost from "./pages/SinglePosts/SinglePost";
+import { ScrollToTop } from "./components/ScrollTop";
 
 function App() {
   const [posts, setPosts] = useState([]);
@@ -31,6 +32,7 @@ function App() {
     <div>
       <Navbar />
 
+        <ScrollToTop />
       <Routes>
         <Route path="/" element={<Home posts={posts} />} />
         <Route path="/about" element={<About />} />

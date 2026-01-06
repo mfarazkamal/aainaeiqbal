@@ -23,12 +23,12 @@ const Footer = ({ posts }) => {
           <ul className="w-full space-y-3">
             {posts.slice(0, 6).map((post) => (
               <li key={post.id} className="text-center">
-                <a
-                  href={post.link}
+                <Link
+                  to={`/post/${post.slug}`}
                   className="hover:underline text-lg block border-b border-gray-400 pb-1"
                 >
                   {post.title.rendered}
-                </a>
+                </Link>
               </li>
             ))}
           </ul>
