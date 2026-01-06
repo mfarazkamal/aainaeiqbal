@@ -1,13 +1,12 @@
 import { useEffect, useState } from 'react';
-import { useParams } from 'react-router-dom';
+import { useParams, useNavigate } from 'react-router-dom'; // Added navigate for back handling
 import axios from 'axios';
-import './PostStyles.css'; // Custom CSS for WP content
+import './PostStyles.css'; 
 import dayjs from 'dayjs';
 
 const SinglePost = () => {
-  <title>Aaina e Iqbal</title>
   const { slug } = useParams();
-  console.log(slug);
+  const navigate = useNavigate(); // Important for "Back" button behavior
   
   const [post, setPost] = useState(null);
   const [sidebarPosts, setSidebarPosts] = useState([]);
@@ -16,17 +15,19 @@ const SinglePost = () => {
   useEffect(() => {
     const fetchFullData = async () => {
       try {
-        // Fetch current post with embedding
+        setLoading(true);
+        // FIX for Mobile: Force browser to top of page on load
+        window.scrollTo(0, 0);
+
         const [res, sidebarRes] = await Promise.all([
-        axios.get(`https://api.aainaeiqbal.co.in/wp-json/wp/v2/posts?slug=${slug}&_embed`),
-        axios.get(`https://api.aainaeiqbal.co.in/wp-json/wp/v2/posts?per_page=3&_embed`)
-      ]);
-        const data = res.data[0];
-        // Fetch 2 random/recent posts for the sidebar cards
-        
-        setPost(data);
-        setSidebarPosts(sidebarRes.data);
-        
+          axios.get(`https://api.aainaeiqbal.co.in/wp-json/wp/v2/posts?slug=${slug}&_embed`),
+          axios.get(`https://api.aainaeiqbal.co.in/wp-json/wp/v2/posts?per_page=3&_embed`)
+        ]);
+
+        if (res.data.length > 0) {
+          setPost(res.data[0]);
+          setSidebarPosts(sidebarRes.data);
+        }
       } catch (err) {
         console.error("Error fetching post:", err);
       } finally {
@@ -36,7 +37,10 @@ const SinglePost = () => {
     fetchFullData();
   }, [slug]);
 
+  // Updated check: If not loading and still no post, it prevents the "stuck" black screen
   if (loading) return <div className="min-h-screen bg-[#1a1a1a] flex items-center justify-center text-white">Loading...</div>;
+  
+  if (!post && !loading) return <div className="min-h-screen bg-[#1a1a1a] flex items-center justify-center text-white">Post not found.</div>;
 
   return (
     <div className="bg-[#1a1a1a] min-h-screen text-white">
@@ -60,7 +64,7 @@ const SinglePost = () => {
               </div>
               <div className="bg-[#373434] p-4 rounded border border-gray-700 text-center">
                 <span className="text-gray-400 block text-xs uppercase mb-1">Category</span>
-                <span className="font-medium">{post._embedded?.['wp:term']?.[0]?.[1]?.name || "Uncategorized"}</span>
+                <span className="font-medium">{post._embedded?.['wp:term']?.[0]?.[1]?.name || post._embedded?.['wp:term']?.[0]?.[0]?.name || "Uncategorized"}</span>
               </div>
               <div className="bg-[#373434] p-4 rounded border border-gray-700 text-center">
                 <span className="text-gray-400 block text-xs uppercase mb-1">Writer</span>
@@ -94,13 +98,16 @@ const SinglePost = () => {
             {/* b) Calendar Widget Placeholder */}
             <div className="bg-[#373434] p-6 rounded-lg border border-gray-700 text-center">
               <h3 className="text-sm font-bold border-b border-gray-600 pb-2 mb-4">CALENDAR</h3>
-              {/* Add a React Calendar Library here if needed */}
               <div className="text-gray-500 italic text-sm">WP Calendar Content</div>
             </div>
 
             {/* c) Random Posts from Category */}
             {sidebarPosts.map((sPost) => (
-              <div key={sPost.id} className="bg-[#373434] p-4 rounded-lg border border-gray-700 hover:bg-[#444] transition-all">
+              <div 
+                key={sPost.id} 
+                onClick={() => navigate(`/post/${sPost.slug}`)} // Use navigate instead of <a> for speed
+                className="bg-[#373434] p-4 rounded-lg border border-gray-700 hover:bg-[#444] transition-all cursor-pointer"
+              >
                 <div className="aspect-video rounded overflow-hidden mb-3">
                   <img 
                     src={sPost._embedded?.['wp:featuredmedia']?.[0]?.source_url} 
@@ -112,7 +119,6 @@ const SinglePost = () => {
                     dangerouslySetInnerHTML={{ __html: sPost.title.rendered }} />
               </div>
             ))}
-
           </div>
         </div>
       </div>

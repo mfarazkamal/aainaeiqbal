@@ -20,9 +20,9 @@ function Navbar() {
       </nav>
 
       <button className="hidden text-xl md:block border bg-[#1F2430] text-white px-6 py-2 rounded-md cursor-pointer">
-        <a target="_blank" href="https://forms.gle/fPxL99bGU8dGKSqYA">
+        <Link target="_blank" to={"https://forms.gle/fPxL99bGU8dGKSqYA"}>
           Contribute
-        </a>
+        </Link>
       </button>
 
       {/* MOBILE NAV */}

@@ -64,9 +64,9 @@ const Footer = ({ posts }) => {
               </Link>
             </button>
             <button className="w-full py-3 cursor-pointer bg-[#373434] text-white rounded-lg hover:bg-black transition-colors flex justify-center gap-2">
-              <a target="_blank" href="https://forms.gle/fPxL99bGU8dGKSqYA">
+              <Link target="_blank" href="https://forms.gle/fPxL99bGU8dGKSqYA">
                 Contribute / <span>معاون</span>
-              </a>
+              </Link>
             </button>
           </div>
         </div>

@@ -16,9 +16,9 @@ function Hero() {
             </p>
             <div className="flex flex-col md:flex-row justify-center w-full gap-4">
               <button className="bg-[#2a2a2a] hover:bg-[#1a1a1a] transition-colors py-3 px-12 rounded cursor-pointer text-xl border border-gray-600">
-                <a target="_blank" href="https://forms.gle/fPxL99bGU8dGKSqYA">
+                <Link target="_blank" href="https://forms.gle/fPxL99bGU8dGKSqYA">
                   Contribute / معاون
-                </a>
+                </Link>
               </button>
               <button className="bg-[#2a2a2a] hover:bg-[#1a1a1a] transition-colors py-3 px-12 rounded cursor-pointer text-xl border border-gray-600">
                 <Link to="/posts">Posts / پوسٹز</Link>

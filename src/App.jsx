@@ -25,14 +25,16 @@ function App() {
         console.error("Error fetching posts:", error);
       }
     };
-    getPosts();
-  }, [timestamp]);
+    if (posts.length === 0) {
+      getPosts();
+    }
+  }, []);
 
   return (
     <div>
       <Navbar />
 
-        <ScrollToTop />
+      <ScrollToTop />
       <Routes>
         <Route path="/" element={<Home posts={posts} />} />
         <Route path="/about" element={<About />} />
