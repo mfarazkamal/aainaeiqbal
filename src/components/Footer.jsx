@@ -1,3 +1,9 @@
+import {
+  Facebook,
+  Instagram,
+  MessageCircle,
+  MessageCircleMore,
+} from "lucide-react";
 import React from "react";
 import { Link } from "react-router-dom";
 
@@ -42,15 +48,27 @@ const Footer = ({ posts }) => {
 
           {/* Social Icons Row */}
           <div className="flex gap-3 mb-6">
-            <button className="w-16 cursor-pointer h-16 bg-[#373434] text-white rounded-lg text-xs flex items-center justify-center px-1">
-              WhatsApp
-            </button>
-            <button className="w-16 cursor-pointer h-16 bg-[#373434] text-white rounded-lg text-sm flex items-center justify-center">
-              FB
-            </button>
-            <button className="w-16 cursor-pointer h-16 bg-[#373434] text-white rounded-lg text-sm flex items-center justify-center">
-              Insta
-            </button>
+            <a
+              href="https://chat.whatsapp.com/DWUXnZYQ1ePI9k5eO6f4k1"
+              target="_blank"
+              className="w-16 cursor-pointer h-16 bg-[#373434] text-white rounded-lg text-2xl font-medium flex items-center justify-center px-1"
+            >
+              WA
+            </a>
+            <a
+              href="https://facebook.com/aainaeiqbal"
+              target="_blanks"
+              className="w-16 cursor-pointer h-16 bg-[#373434] text-white rounded-lg text-sm flex items-center justify-center"
+            >
+              <Facebook size={30} />
+            </a>
+            <a
+              href="https://instagram.com/aainaeiqbal"
+              target="_blanks"
+              className="w-16 cursor-pointer h-16 bg-[#373434] text-white rounded-lg text-sm flex items-center justify-center"
+            >
+              <Instagram size={30} />
+            </a>
           </div>
 
           {/* Navigation Buttons Stack */}
@@ -65,7 +83,7 @@ const Footer = ({ posts }) => {
             </button>
             <button className="w-full py-3 cursor-pointer bg-[#373434] text-white rounded-lg hover:bg-black transition-colors flex justify-center gap-2">
               <Link target="_blank" href="https://forms.gle/fPxL99bGU8dGKSqYA">
-                Contribute / <span>معاون</span>
+                Contributor's / <span>معاون</span>
               </Link>
             </button>
           </div>

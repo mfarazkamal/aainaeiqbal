@@ -5,9 +5,9 @@ import { Link, Links } from "react-router-dom";
 function PostCard({ posts }) {
   return (
     <>
-      <section className="py-12 px-6">
+      <section className="py-12 px-1">
         <div className="max-w-7xl mx-auto">
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 border border-gray-600 p-6 rounded-lg">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 border border-gray-600 p-3 rounded-lg">
             {posts.map((post, index) => {
 
               const featuredImage =

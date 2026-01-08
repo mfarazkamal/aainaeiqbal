@@ -12,6 +12,7 @@ import { ScrollToTop } from "./components/ScrollTop";
 
 function App() {
   const [posts, setPosts] = useState([]);
+
   const timestamp = new Date().getTime();
   const baseURL =
     "https://api.aainaeiqbal.co.in/wp-json/wp/v2/posts?_embed&per_page=12";

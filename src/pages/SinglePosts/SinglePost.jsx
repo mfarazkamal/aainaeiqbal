@@ -21,7 +21,7 @@ const SinglePost = () => {
 
         const [res, sidebarRes] = await Promise.all([
           axios.get(`https://api.aainaeiqbal.co.in/wp-json/wp/v2/posts?slug=${slug}&_embed`),
-          axios.get(`https://api.aainaeiqbal.co.in/wp-json/wp/v2/posts?per_page=3&_embed`)
+          axios.get(`https://api.aainaeiqbal.co.in/wp-json/wp/v2/posts?per_page=5&_embed`)
         ]);
 
         if (res.data.length > 0) {
@@ -95,10 +95,14 @@ const SinglePost = () => {
               </div>
             </div>
 
-            {/* b) Calendar Widget Placeholder */}
-            <div className="bg-[#373434] p-6 rounded-lg border border-gray-700 text-center">
-              <h3 className="text-sm font-bold border-b border-gray-600 pb-2 mb-4">CALENDAR</h3>
-              <div className="text-gray-500 italic text-sm">WP Calendar Content</div>
+            {/* b) Back to Posts Button */}
+            <div className="bg-[#373434] p-4 rounded-lg border border-gray-700 text-center shadow-md">
+              <button
+                onClick={() => navigate("/posts")}
+                className="w-full py-3 cursor-pointer bg-[#373434] text-white rounded-lg hover:bg-black transition-colors"
+              >
+                Back to Posts
+              </button>
             </div>
 
             {/* c) Random Posts from Category */}
