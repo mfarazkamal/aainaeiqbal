@@ -1,4 +1,4 @@
-import { Route, Routes } from "react-router-dom";
+import { Navigate, Route, Routes } from "react-router-dom";
 import Navbar from "./components/Navbar";
 import About from "./pages/About";
 import Posts from "./pages/Posts";
@@ -42,6 +42,7 @@ function App() {
         <Route path="/posts" element={<Posts posts={posts} />} />
         <Route path="/post/:slug" element={<SinglePost posts={posts} />} />
         {/* <Route path="/lifeOfAllamaIqbal" element={<LifeOfAllamaIqbal />} /> */}
+        <Route path="*" element={<Navigate to="/" replace />} />
       </Routes>
       <Footer posts={posts} />
     </div>

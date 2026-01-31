@@ -23,7 +23,7 @@ function Navbar() {
         <nav className="hidden md:flex gap-8 text-2xl">
           <Link to={"/"} className="hover:text-gray-400">Home</Link>
           <Link to={"/posts"} className="hover:text-gray-400">Posts</Link>
-          <Link to={"https://aainaeiqbal.co.in/life-of-dr-allama-iqbal/"} className="hover:text-gray-400">Life of Allama Iqbal</Link>
+          {/* <Link to={"https://aainaeiqbal.co.in/life-of-dr-allama-iqbal/"} className="hover:text-gray-400">Life of Allama Iqbal</Link> */}
         </nav>
 
         <button className="hidden md:block border bg-[#1F2430] text-white px-6 py-2 rounded-md cursor-pointer hover:bg-black transition">
