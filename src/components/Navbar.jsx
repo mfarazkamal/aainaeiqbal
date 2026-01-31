@@ -45,7 +45,7 @@ function Navbar() {
         <div className="md:hidden absolute top-20 left-0 w-full bg-[#373434] border-t border-gray-700 flex flex-col items-center gap-6 py-8 text-xl text-white shadow-2xl z-50">
           <Link to={"/"} onClick={toggleMenu}>Home</Link>
           <Link to={"/posts"} onClick={toggleMenu}>Posts</Link>
-          <a href="https://aainaeiqbal.co.in/life-of-dr-allama-iqbal/" onClick={toggleMenu}>Life of Allama Iqbal</a>
+          {/* <a href="https://aainaeiqbal.co.in/life-of-dr-allama-iqbal/" onClick={toggleMenu}>Life of Allama Iqbal</a> */}
           <Link 
             target="_blank" 
             to={"https://forms.gle/fPxL99bGU8dGKSqYA"} 
