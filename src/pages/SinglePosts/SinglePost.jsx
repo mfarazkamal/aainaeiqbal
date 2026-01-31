@@ -3,6 +3,7 @@ import { useParams, useNavigate } from 'react-router-dom'; // Added navigate for
 import axios from 'axios';
 import './PostStyles.css'; 
 import dayjs from 'dayjs';
+import { ScrollToTop } from '../../components/ScrollTop';
 
 const SinglePost = () => {
   const { slug } = useParams();
@@ -17,7 +18,7 @@ const SinglePost = () => {
       try {
         setLoading(true);
         // FIX for Mobile: Force browser to top of page on load
-        window.scrollTo(0, 0);
+        <ScrollToTop  />;
 
         const [res, sidebarRes] = await Promise.all([
           axios.get(`https://api.aainaeiqbal.co.in/wp-json/wp/v2/posts?slug=${slug}&_embed`),

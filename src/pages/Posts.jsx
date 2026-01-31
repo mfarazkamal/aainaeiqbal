@@ -12,12 +12,7 @@ const Posts = ({ posts }) => {
         </div>
        <PostCard posts={posts} />
 
-       {/* Paginate */}
-        <div className="flex justify-center mt-12">
-          <button className="bg-[#373434] cursor-pointer bg-zinc-900 border border-white text-white px-6 py-3 rounded text-lg hover:bg-black transition">
-            مزید لوڈ کریں
-          </button>
-        </div>
+       
       </div>
     </section>
   );

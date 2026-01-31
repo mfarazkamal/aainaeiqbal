@@ -9,7 +9,7 @@ function Hero() {
           {/* Right Side: Site Name and Tagline (Order changed for Desktop) */}
           <div className="md:order-2 flex flex-col gap-8 justify-center items-center md:items-end md:text-right">
             <h1 className="text-6xl w-full text-center md:text-[10rem] mb-2">
-              آئینہ اقبال
+              آئینۂ اقبال
             </h1>
             <p className="text-sm w-full text-center bg-zinc-800 py-4 rounded-md font-semibold md:text-xl tracking-widest uppercase opacity-80">
               Reflection of Knowledge Towards Reality
@@ -78,9 +78,9 @@ function Hero() {
               Life of Allama Iqbal / علامہ اقبال کی زندگی
             </Link>
           </button>
-          <button className="bg-[#2a2a2a] hover:bg-[#1a1a1a] transition-colors py-3 px-12 rounded cursor-pointer text-xl border border-gray-600">
+          {/* <button className="bg-[#2a2a2a] hover:bg-[#1a1a1a] transition-colors py-3 px-12 rounded cursor-pointer text-xl border border-gray-600">
             <Link to="/posts">Special Posts/ خصوصی پوسٹز</Link>
-          </button>
+          </button> */}
         </div>
       </div>
     </section>

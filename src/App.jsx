@@ -1,4 +1,4 @@
-import { Route, Router, Routes } from "react-router-dom";
+import { Route, Routes } from "react-router-dom";
 import Navbar from "./components/Navbar";
 import About from "./pages/About";
 import Posts from "./pages/Posts";
@@ -26,15 +26,15 @@ function App() {
         console.error("Error fetching posts:", error);
       }
     };
+
     if (posts.length === 0) {
       getPosts();
     }
-  }, []);
+  }, [timestamp, posts.length, baseURL]);
 
   return (
     <div>
       <Navbar />
-
       <ScrollToTop />
       <Routes>
         <Route path="/" element={<Home posts={posts} />} />

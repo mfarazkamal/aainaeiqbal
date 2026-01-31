@@ -1,15 +1,14 @@
 import {
   Facebook,
   Instagram,
-  MessageCircle,
-  MessageCircleMore,
 } from "lucide-react";
 import React from "react";
 import { Link } from "react-router-dom";
 
 const Footer = ({ posts }) => {
   return (
-    <footer className="bg-[#373434] p-6 md:p-10 ">
+    <footer className="bg-[#373434] p-4 md:p-2 ">
+      
       <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-3 justify-between gap-6">
         {/* Card 1: Branding & Image */}
         <div className="bg-[#B3B3B3] p-6 rounded-lg flex flex-col items-center text-center">
@@ -51,14 +50,14 @@ const Footer = ({ posts }) => {
             <a
               href="https://chat.whatsapp.com/DWUXnZYQ1ePI9k5eO6f4k1"
               target="_blank"
-              className="w-16 cursor-pointer h-16 bg-[#373434] text-white rounded-lg text-2xl font-medium flex items-center justify-center px-1"
+              className="w-16 bg-green-800 hover:bg-green-900 hover:border-2 hover:border-white cursor-pointer h-16 bg-[#373434] text-white rounded-lg text-2xl font-medium flex items-center justify-center px-1"
             >
               WA
             </a>
             <a
               href="https://facebook.com/aainaeiqbal"
               target="_blanks"
-              className="w-16 cursor-pointer h-16 bg-[#373434] text-white rounded-lg text-sm flex items-center justify-center"
+              className="w-16 cursor-pointer h-16 bg-blue-800 hover:bg-blue-900 hover:border-2 hover:border-white text-white rounded-lg text-sm flex items-center justify-center"
             >
               <Facebook size={30} />
             </a>
