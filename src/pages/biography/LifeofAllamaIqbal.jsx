@@ -27,7 +27,7 @@ function LifeofAllamaIqbal() {
   return (
     <div className="bg-[#1a1a1a] min-h-screen text-white">
       <title>Allama Iqbal Biography</title>
-      <div className="max-w-[80%] mx-auto p-4 md:p-10">
+      <div className="md:max-w-[90%] mx-auto p-4 md:p-10">
         
         {/* Title Section */}
         <div className="bg-[#373434] py-8 px-4 rounded-lg border border-gray-700 text-center shadow-xl mb-8">
