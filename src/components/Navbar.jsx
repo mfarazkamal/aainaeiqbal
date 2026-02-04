@@ -1,15 +1,19 @@
 import { useState } from "react";
-import { Link } from "react-router-dom";
-// Optional: Install lucide-react for icons: npm install lucide-react
+import { NavLink, Link } from "react-router-dom"; // Use NavLink for active states
 import { Menu, X } from "lucide-react"; 
 
 function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
-
   const toggleMenu = () => setIsOpen(!isOpen);
 
+  // Helper function for active styles to keep code clean
+  const navStyles = ({ isActive }) => 
+    `transition-all duration-300 pb-1 border-b-2 ${
+      isActive ? "border-white text-white" : "border-transparent text-gray-300 hover:text-white"
+    }`;
+
   return (
-    <div className="relative z-[100]"> {/* Ensure Navbar is above content */}
+    <div className="relative z-[100]">
       <div className="flex justify-around h-20 items-center p-2 mb-4 mt-1 bg-[#373434] text-white">
         <div>
           <Link to={"/"}>
@@ -21,9 +25,9 @@ function Navbar() {
 
         {/* DESKTOP NAV */}
         <nav className="hidden md:flex gap-8 text-2xl">
-          <Link to={"/"} className="hover:text-gray-400">Home</Link>
-          <Link to={"/posts"} className="hover:text-gray-400">Posts</Link>
-          {/* <Link to={"https://aainaeiqbal.co.in/life-of-dr-allama-iqbal/"} className="hover:text-gray-400">Life of Allama Iqbal</Link> */}
+          <NavLink to={"/"} className={navStyles}>Home</NavLink>
+          <NavLink to={"/posts"} className={navStyles}>Posts</NavLink>
+          <NavLink to={"/biography-allama-iqbal"} className={navStyles}>Life of Allama Iqbal</NavLink>
         </nav>
 
         <button className="hidden md:block border bg-[#1F2430] text-white px-6 py-2 rounded-md cursor-pointer hover:bg-black transition">
@@ -43,9 +47,9 @@ function Navbar() {
       {/* MOBILE NAV DROPDOWN */}
       {isOpen && (
         <div className="md:hidden absolute top-20 left-0 w-full bg-[#373434] border-t border-gray-700 flex flex-col items-center gap-6 py-8 text-xl text-white shadow-2xl z-50">
-          <Link to={"/"} onClick={toggleMenu}>Home</Link>
-          <Link to={"/posts"} onClick={toggleMenu}>Posts</Link>
-          {/* <a href="https://aainaeiqbal.co.in/life-of-dr-allama-iqbal/" onClick={toggleMenu}>Life of Allama Iqbal</a> */}
+          <NavLink to={"/"} onClick={toggleMenu} className={navStyles}>Home</NavLink>
+          <NavLink to={"/posts"} onClick={toggleMenu} className={navStyles}>Posts</NavLink>
+          <NavLink to={"/biography-allama-iqbal"} onClick={toggleMenu} className={navStyles}>Life of Allama Iqbal</NavLink>
           <Link 
             target="_blank" 
             to={"https://forms.gle/fPxL99bGU8dGKSqYA"} 

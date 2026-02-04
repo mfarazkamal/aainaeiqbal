@@ -1,0 +1,48 @@
+.hayat{
+    background-color: #1a1a1a;
+    color: white;
+    padding:  0.5rem 3.5rem;
+    border: solid 0.5px white;
+    border-radius: 5px 1px 10px 50px;
+    max-width: fit-content;
+    font-size: 1.5rem;
+    text-align: center;
+    margin: 2rem auto;
+}
+
+.life{
+    font-size: 2rem;
+    text-align: justify;
+    
+}
+
+.moti{
+    background-color: maroon;
+    color: white;
+    width: 40%;
+    margin: 2rem auto;
+    border-radius: 0 500px;
+    text-align: center;
+    font-size: 1.8rem;
+    border: solid 0.5px white;
+    padding: 0.5rem 3.5rem;
+}
+
+@media (max-width: 768px) {
+    .hayat {
+        font-size: 1.2rem;
+        padding: 0.5rem 2rem;
+    }
+    
+    .life {
+        font-size: 1.5rem;
+    }
+    
+    .moti {
+        width: 80%;
+        font-size: 1.5rem;
+        padding: 0.5rem 2rem;
+        border-radius: 0 50px;
+    }
+    
+}

@@ -44,6 +44,7 @@ const SinglePost = () => {
   if (!post && !loading) return <div className="min-h-screen bg-[#1a1a1a] flex items-center justify-center text-white">Post not found.</div>;
 
   return (
+    
     <div className="bg-[#1a1a1a] min-h-screen text-white">
       <div className="max-w-[100%] mx-auto p-4 md:p-10">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8">

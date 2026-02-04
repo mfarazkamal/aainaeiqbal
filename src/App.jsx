@@ -2,13 +2,13 @@ import { Navigate, Route, Routes } from "react-router-dom";
 import Navbar from "./components/Navbar";
 import About from "./pages/About";
 import Posts from "./pages/Posts";
-// import LifeOfAllamaIqbal from "./pages/LifeOfAllamaIqbal";
 import Home from "./pages/Home";
 import { useEffect, useState } from "react";
 import axios from "axios";
 import Footer from "./components/Footer";
 import SinglePost from "./pages/SinglePosts/SinglePost";
 import { ScrollToTop } from "./components/ScrollTop";
+import LifeofAllamaIqbal from "./pages/biography/LifeofAllamaIqbal";
 
 function App() {
   const [posts, setPosts] = useState([]);
@@ -41,7 +41,7 @@ function App() {
         <Route path="/about" element={<About />} />
         <Route path="/posts" element={<Posts posts={posts} />} />
         <Route path="/post/:slug" element={<SinglePost posts={posts} />} />
-        {/* <Route path="/lifeOfAllamaIqbal" element={<LifeOfAllamaIqbal />} /> */}
+        <Route path="/biography-allama-iqbal" element={<LifeofAllamaIqbal />} />
         <Route path="*" element={<Navigate to="/" replace />} />
       </Routes>
       <Footer posts={posts} />
