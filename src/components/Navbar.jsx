@@ -19,14 +19,14 @@ function Navbar() {
 
   return (
     <div
-      className={`fixed top-0 left-0 right-0 z-[100] transition-transform duration-300 ease-in-out ${
+      className={`fixed top-0 left-0 right-0 z-[100] px-3 md:px-6 pt-3 transition-transform duration-300 ease-in-out ${
         isHidden ? "-translate-y-full" : "translate-y-0"
       }`}
     >
-      <div className="navbar-glass flex justify-around h-20 items-center px-4 text-white">
+      <div className="navbar-glass navbar-floating flex justify-between h-20 md:h-[80px] items-center px-4 md:px-6 text-white rounded-2xl max-w-7xl mx-auto">
         <div>
           <Link to={"/"}>
-            <h1 className="navbar-logo uppercase tracking-wider text-xl md:text-3xl font-bold cursor-pointer">
+            <h1 className="navbar-logo uppercase tracking-wider text-lg md:text-2xl font-bold cursor-pointer">
               Aaina e Iqbal
             </h1>
           </Link>
@@ -42,7 +42,7 @@ function Navbar() {
         <Link
           target="_blank"
           to={"https://forms.gle/fPxL99bGU8dGKSqYA"}
-          className="hidden md:block btn-contributor px-6 py-2 rounded-md cursor-pointer"
+          className="hidden md:block btn-contributor px-5 py-1.5 rounded-lg cursor-pointer text-sm"
         >
           Contributor's
         </Link>
@@ -50,21 +50,21 @@ function Navbar() {
         {/* MOBILE MENU ICON */}
         <div className="md:hidden flex items-center">
           <button onClick={toggleMenu} className="text-white focus:outline-none cursor-pointer">
-            {isOpen ? <X size={32} /> : <Menu size={32} />}
+            {isOpen ? <X size={28} /> : <Menu size={28} />}
           </button>
         </div>
       </div>
 
       {/* MOBILE NAV DROPDOWN */}
       {isOpen && (
-        <div className="md:hidden mobile-menu-glass absolute top-20 left-0 w-full flex flex-col items-center gap-6 py-8 text-xl text-white shadow-2xl z-50">
+        <div className="md:hidden mobile-menu-glass mt-2 mx-2 rounded-2xl flex flex-col items-center gap-5 py-6 text-lg text-white shadow-2xl z-50">
           <NavLink to={"/"} onClick={toggleMenu} className={navStyles}>Home</NavLink>
           <NavLink to={"/posts"} onClick={toggleMenu} className={navStyles}>Posts</NavLink>
           <NavLink to={"/biography-allama-iqbal"} onClick={toggleMenu} className={navStyles}>Life of Allama Iqbal</NavLink>
           <Link
             target="_blank"
             to={"https://forms.gle/fPxL99bGU8dGKSqYA"}
-            className="btn-contributor px-8 py-2 rounded-md"
+            className="btn-contributor px-8 py-2 rounded-lg"
             onClick={toggleMenu}
           >
             Contributor's
