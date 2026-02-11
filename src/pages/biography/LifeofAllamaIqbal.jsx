@@ -18,16 +18,16 @@ function LifeofAllamaIqbal() {
   if (!page) {
     
     return (
-      <div className="min-h-screen bg-[#1a1a1a] flex items-center justify-center text-white">
+      <div className="min-h-screen flex items-center justify-center text-white">
         <p className="text-xl">Loading...</p>
       </div>
     );
   }
 
   return (
-    <div className="bg-[#1a1a1a] min-h-screen text-white">
+    <div className=" min-h-screen text-white">
       <title>Allama Iqbal Biography</title>
-      <div className="md:max-w-[90%] mx-auto p-4 md:p-10">
+      <div className="md:max-w-[90%] mx-auto p-4 md:p-6">
         
         {/* Title Section */}
         <div className="bg-[#373434] py-8 px-4 rounded-lg border border-gray-700 text-center shadow-xl mb-8">

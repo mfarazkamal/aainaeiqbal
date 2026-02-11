@@ -1,23 +1,32 @@
 import { useState } from "react";
-import { NavLink, Link } from "react-router-dom"; // Use NavLink for active states
-import { Menu, X } from "lucide-react"; 
+import { NavLink, Link } from "react-router-dom";
+import { Menu, X } from "lucide-react";
+import { useScrollDirection } from "../hooks/useScrollDirection";
 
 function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
   const toggleMenu = () => setIsOpen(!isOpen);
+  const { direction, isAtTop } = useScrollDirection();
 
-  // Helper function for active styles to keep code clean
-  const navStyles = ({ isActive }) => 
-    `transition-all duration-300 pb-1 border-b-2 ${
-      isActive ? "border-white text-white" : "border-transparent text-gray-300 hover:text-white"
+  // Hide navbar on scroll-down, show on scroll-up (never hide if menu is open)
+  const isHidden = direction === "down" && !isAtTop && !isOpen;
+
+  // Active link style — golden underline for active, subtle hover for others
+  const navStyles = ({ isActive }) =>
+    `nav-link-premium text-gray-300 hover:text-[#F5EDE0] transition-colors duration-300 ${
+      isActive ? "!text-[#F5EDE0] active" : ""
     }`;
 
   return (
-    <div className="relative z-[100]">
-      <div className="flex justify-around h-20 items-center p-2 mb-4 mt-1 bg-[#373434] text-white">
+    <div
+      className={`fixed top-0 left-0 right-0 z-[100] transition-transform duration-300 ease-in-out ${
+        isHidden ? "-translate-y-full" : "translate-y-0"
+      }`}
+    >
+      <div className="navbar-glass flex justify-around h-20 items-center px-4 text-white">
         <div>
           <Link to={"/"}>
-            <h1 className="uppercase tracking-wider text-xl md:text-3xl font-bold cursor-pointer">
+            <h1 className="navbar-logo uppercase tracking-wider text-xl md:text-3xl font-bold cursor-pointer">
               Aaina e Iqbal
             </h1>
           </Link>
@@ -30,15 +39,17 @@ function Navbar() {
           <NavLink to={"/biography-allama-iqbal"} className={navStyles}>Life of Allama Iqbal</NavLink>
         </nav>
 
-        <button className="hidden md:block border bg-[#1F2430] text-white px-6 py-2 rounded-md cursor-pointer hover:bg-black transition">
-          <Link target="_blank" to={"https://forms.gle/fPxL99bGU8dGKSqYA"}>
-            Contributor's
-          </Link>
-        </button>
+        <Link
+          target="_blank"
+          to={"https://forms.gle/fPxL99bGU8dGKSqYA"}
+          className="hidden md:block btn-contributor px-6 py-2 rounded-md cursor-pointer"
+        >
+          Contributor's
+        </Link>
 
         {/* MOBILE MENU ICON */}
         <div className="md:hidden flex items-center">
-          <button onClick={toggleMenu} className="text-white focus:outline-none">
+          <button onClick={toggleMenu} className="text-white focus:outline-none cursor-pointer">
             {isOpen ? <X size={32} /> : <Menu size={32} />}
           </button>
         </div>
@@ -46,14 +57,14 @@ function Navbar() {
 
       {/* MOBILE NAV DROPDOWN */}
       {isOpen && (
-        <div className="md:hidden absolute top-20 left-0 w-full bg-[#373434] border-t border-gray-700 flex flex-col items-center gap-6 py-8 text-xl text-white shadow-2xl z-50">
+        <div className="md:hidden mobile-menu-glass absolute top-20 left-0 w-full flex flex-col items-center gap-6 py-8 text-xl text-white shadow-2xl z-50">
           <NavLink to={"/"} onClick={toggleMenu} className={navStyles}>Home</NavLink>
           <NavLink to={"/posts"} onClick={toggleMenu} className={navStyles}>Posts</NavLink>
           <NavLink to={"/biography-allama-iqbal"} onClick={toggleMenu} className={navStyles}>Life of Allama Iqbal</NavLink>
-          <Link 
-            target="_blank" 
-            to={"https://forms.gle/fPxL99bGU8dGKSqYA"} 
-            className="border bg-[#1F2430] px-8 py-2 rounded-md"
+          <Link
+            target="_blank"
+            to={"https://forms.gle/fPxL99bGU8dGKSqYA"}
+            className="btn-contributor px-8 py-2 rounded-md"
             onClick={toggleMenu}
           >
             Contributor's

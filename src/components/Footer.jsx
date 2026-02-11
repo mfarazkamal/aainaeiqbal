@@ -7,7 +7,7 @@ import { Link } from "react-router-dom";
 
 const Footer = ({ posts }) => {
   return (
-    <footer className="bg-[#373434] p-4 md:p-2 ">
+    <footer className=" p-4 md:p-2 ">
       
       <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-3 justify-between gap-6">
         {/* Card 1: Branding & Image */}

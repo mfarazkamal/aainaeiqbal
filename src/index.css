@@ -2,7 +2,114 @@
 @import "tailwindcss";
 
 
-body{
-    background-color: #373434;
+/* ─── Universal Site Background ─── */
+body {
+  background: radial-gradient(
+    ellipse 130% 90% at 50% 40%,
+    #151820 0%,
+    #10121A 30%,
+    #0A0C12 60%,
+    #060810 100%
+  );
+  background-attachment: fixed;
+  min-height: 100vh;
+  position: relative;
 }
 
+/* Islamic geometric pattern — global */
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='60' height='60' viewBox='0 0 60 60'%3E%3Cg fill='none' stroke='%23C8A961' stroke-width='1.2'%3E%3Cpolygon points='30,2 58,30 30,58 2,30'/%3E%3Crect x='16' y='16' width='28' height='28'/%3E%3Cline x1='0' y1='0' x2='16' y2='16'/%3E%3Cline x1='60' y1='0' x2='44' y2='16'/%3E%3Cline x1='0' y1='60' x2='16' y2='44'/%3E%3Cline x1='60' y1='60' x2='44' y2='44'/%3E%3C/g%3E%3C/svg%3E");
+  background-size: 120px 120px;
+  background-repeat: repeat;
+  opacity: 0.07;
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* Ambient golden glow — fixed center warmth */
+body::after {
+  content: "";
+  position: fixed;
+  top: 30%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 80vw;
+  height: 70vh;
+  background: radial-gradient(
+    ellipse at center,
+    rgba(200, 169, 97, 0.035) 0%,
+    rgba(200, 169, 97, 0.015) 40%,
+    transparent 70%
+  );
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* Ensure all content sits above pseudo-elements */
+#root {
+  position: relative;
+  z-index: 1;
+}
+
+/* ─── Glassmorphic Navbar ─── */
+.navbar-glass {
+  background: rgba(12, 14, 20, 0.72);
+  backdrop-filter: blur(18px);
+  -webkit-backdrop-filter: blur(18px);
+  border-bottom: 1px solid rgba(200, 169, 97, 0.12);
+  box-shadow:
+    0 1px 20px rgba(0, 0, 0, 0.3),
+    0 1px 8px rgba(200, 169, 97, 0.04);
+}
+
+/* Navbar golden logo accent */
+.navbar-logo {
+  background: linear-gradient(135deg, #F5EDE0 0%, #C8A961 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* Desktop nav link hover underline */
+.nav-link-premium {
+  position: relative;
+  transition: color 0.3s ease;
+}
+.nav-link-premium::after {
+  content: "";
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background: linear-gradient(90deg, #C8A961, rgba(200, 169, 97, 0.3));
+  transition: width 0.3s ease;
+}
+.nav-link-premium:hover::after,
+.nav-link-premium.active::after {
+  width: 100%;
+}
+
+/* Contributor button golden outline */
+.btn-contributor {
+  border: 1px solid rgba(200, 169, 97, 0.35);
+  background: rgba(200, 169, 97, 0.06);
+  color: #C8A961;
+  transition: all 0.3s ease;
+}
+.btn-contributor:hover {
+  background: rgba(200, 169, 97, 0.12);
+  border-color: rgba(200, 169, 97, 0.5);
+  box-shadow: 0 0 16px rgba(200, 169, 97, 0.08);
+}
+
+/* Mobile menu glass */
+.mobile-menu-glass {
+  background: rgba(12, 14, 20, 0.88);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border-top: 1px solid rgba(200, 169, 97, 0.1);
+}

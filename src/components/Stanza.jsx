@@ -41,7 +41,7 @@ const Stanza = ({ posts }) => {
   if (randomStanzas.length === 0) return null;
 
   return (
-    <div className="bg-[#1a1a1a] py-12 px-4 md:px-10">
+    <div className=" py-12 px-4 md:px-10">
       <div className="text-center mb-12 px-4">
         <h2 className="text-white border-2 w-full md:w-2xl mx-auto rounded-b-lg pb-3 opacity-50 text-4xl md:text-6xl">
           اشعار

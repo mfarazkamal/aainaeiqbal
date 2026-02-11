@@ -47,6 +47,7 @@ function App() {
         />
       )}
       <Navbar />
+      <div className="pt-20">
       <ScrollToTop />
       <Routes>
         <Route path="/" element={<Home posts={posts} />} />
@@ -57,6 +58,7 @@ function App() {
         <Route path="*" element={<Navigate to="/" replace />} />
       </Routes>
       <Footer posts={posts} />
+      </div>
     </div>
   );
 }
