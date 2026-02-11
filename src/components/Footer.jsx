@@ -18,7 +18,7 @@ const Footer = ({ posts }) => {
           </p>
           <div className="w-full h-60 bg-[#545454] rounded-md overflow-hidden flex items-start justify-center">
             {/* Replace with actual <img> tag */}
-            <img src="./cover.png" alt="" />
+            <img src="/cover.png" alt="" />
           </div>
         </div>
 

@@ -1,0 +1,187 @@
+/* ============================================
+   SPLASH SCREEN — Aaina e Iqbal
+   Rich atmospheric dark theme with golden warmth
+   ============================================ */
+
+/* Background panel — radial gradient with depth */
+.splash-bg-panel {
+  background: radial-gradient(
+    ellipse 120% 80% at 50% 45%,
+    #151820 0%,
+    #10121A 35%,
+    #0A0C12 65%,
+    #060810 100%
+  );
+}
+
+/* Islamic geometric pattern — eight-pointed star tessellation */
+.splash-pattern-layer {
+  position: absolute;
+  inset: 0;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='60' height='60' viewBox='0 0 60 60'%3E%3Cg fill='none' stroke='%23C8A961' stroke-width='1.2'%3E%3Cpolygon points='30,2 58,30 30,58 2,30'/%3E%3Crect x='16' y='16' width='28' height='28'/%3E%3Cline x1='0' y1='0' x2='16' y2='16'/%3E%3Cline x1='60' y1='0' x2='44' y2='16'/%3E%3Cline x1='0' y1='60' x2='16' y2='44'/%3E%3Cline x1='60' y1='60' x2='44' y2='44'/%3E%3C/g%3E%3C/svg%3E");
+  background-size: 80px 80px;
+  background-repeat: repeat;
+  opacity: 0.14;
+  pointer-events: none;
+  -webkit-mask-image: radial-gradient(ellipse 90% 80% at 50% 45%, black 0%, rgba(0,0,0,0.5) 50%, transparent 80%);
+  mask-image: radial-gradient(ellipse 90% 80% at 50% 45%, black 0%, rgba(0,0,0,0.5) 50%, transparent 80%);
+}
+
+/* Ambient golden glow — subtle warmth in center */
+.splash-ambient-glow {
+  position: absolute;
+  top: 40%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 70vw;
+  height: 70vh;
+  background: radial-gradient(
+    ellipse at center,
+    rgba(200, 169, 97, 0.045) 0%,
+    rgba(200, 169, 97, 0.02) 35%,
+    transparent 70%
+  );
+  pointer-events: none;
+  z-index: 1;
+}
+
+/* Slow-moving ambient light orb — adds life */
+.splash-ambient-orb {
+  position: absolute;
+  top: 35%;
+  left: 45%;
+  width: 40vw;
+  height: 40vh;
+  background: radial-gradient(
+    ellipse at center,
+    rgba(200, 169, 97, 0.035) 0%,
+    transparent 60%
+  );
+  pointer-events: none;
+  z-index: 1;
+  animation: splashOrbDrift 18s ease-in-out infinite;
+  will-change: transform;
+}
+
+@keyframes splashOrbDrift {
+  0%, 100% {
+    transform: translate(0, 0) scale(1);
+  }
+  25% {
+    transform: translate(8%, -6%) scale(1.1);
+  }
+  50% {
+    transform: translate(-5%, 4%) scale(0.95);
+  }
+  75% {
+    transform: translate(3%, 8%) scale(1.05);
+  }
+}
+
+/* Shimmer light sweep across title */
+.splash-shimmer {
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    90deg,
+    transparent 0%,
+    rgba(200, 169, 97, 0.08) 30%,
+    rgba(200, 169, 97, 0.35) 50%,
+    rgba(200, 169, 97, 0.08) 70%,
+    transparent 100%
+  );
+  pointer-events: none;
+}
+
+/* Golden vertical light for book-opening exit */
+.splash-golden-light {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%) scaleX(0);
+  width: 8px;
+  height: 100%;
+  background: linear-gradient(
+    180deg,
+    transparent 0%,
+    rgba(200, 169, 97, 0.6) 20%,
+    rgba(200, 169, 97, 1) 50%,
+    rgba(200, 169, 97, 0.6) 80%,
+    transparent 100%
+  );
+  box-shadow:
+    0 0 60px 20px rgba(200, 169, 97, 0.3),
+    0 0 120px 40px rgba(200, 169, 97, 0.15);
+  z-index: 20;
+  opacity: 0;
+}
+
+/* Floating golden particles */
+.splash-particle {
+  position: absolute;
+  bottom: -10px;
+  background: radial-gradient(circle, rgba(200, 169, 97, 0.8), transparent);
+  border-radius: 50%;
+  animation: splashParticleFloat linear infinite;
+  opacity: 0;
+  will-change: transform, opacity;
+}
+
+/* Warm-toned particle variant — slightly white/amber */
+.splash-particle-warm {
+  background: radial-gradient(circle, rgba(245, 230, 200, 0.7), transparent);
+}
+
+@keyframes splashParticleFloat {
+  0% {
+    transform: translateY(0) translateX(0);
+    opacity: 0;
+  }
+  8% {
+    opacity: 0.5;
+  }
+  50% {
+    opacity: 0.35;
+  }
+  85% {
+    opacity: 0.15;
+  }
+  100% {
+    transform: translateY(-100vh) translateX(15px);
+    opacity: 0;
+  }
+}
+
+/* Explore button glow pulse */
+.splash-btn-glow {
+  animation: splashBtnGlow 2.5s ease-in-out infinite;
+}
+
+@keyframes splashBtnGlow {
+  0%, 100% {
+    box-shadow: 0 0 0 0 rgba(200, 169, 97, 0);
+  }
+  50% {
+    box-shadow: 0 0 24px 4px rgba(200, 169, 97, 0.12);
+  }
+}
+
+/* Golden dot glow */
+.splash-dot-glow {
+  box-shadow: 0 0 20px 8px rgba(200, 169, 97, 0.4);
+}
+
+/* Golden line glow */
+.splash-line-glow {
+  background: linear-gradient(90deg, transparent, #C8A961, transparent);
+  box-shadow: 0 0 15px 3px rgba(200, 169, 97, 0.3);
+}
+
+/* Golden underline draw animation */
+.splash-mission-line {
+  background: rgba(200, 169, 97, 0.35);
+  transform-origin: right center;
+}

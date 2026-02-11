@@ -9,18 +9,20 @@ import Footer from "./components/Footer";
 import SinglePost from "./pages/SinglePosts/SinglePost";
 import { ScrollToTop } from "./components/ScrollTop";
 import LifeofAllamaIqbal from "./pages/biography/LifeofAllamaIqbal";
+import SplashScreen from "./components/SplashScreen/SplashScreen";
+import { usePreloader } from "./hooks/usePreloader";
 
 function App() {
   const [posts, setPosts] = useState([]);
+  const [splashDone, setSplashDone] = useState(false);
 
-  const timestamp = new Date().getTime();
   const baseURL =
     "https://api.aainaeiqbal.co.in/wp-json/wp/v2/posts?_embed&per_page=12";
 
   useEffect(() => {
     const getPosts = async () => {
       try {
-        const response = await axios.get(`${baseURL}&_embed&t=${timestamp}`);
+        const response = await axios.get(`${baseURL}&_embed&t=${Date.now()}`);
         setPosts(response.data);
       } catch (error) {
         console.error("Error fetching posts:", error);
@@ -30,10 +32,20 @@ function App() {
     if (posts.length === 0) {
       getPosts();
     }
-  }, [timestamp, posts.length, baseURL]);
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
+
+  const { isReady, progress } = usePreloader(posts.length > 0);
 
   return (
     <div>
+      {!splashDone && (
+        <SplashScreen
+          isReady={isReady}
+          progress={progress}
+          onComplete={() => setSplashDone(true)}
+        />
+      )}
       <Navbar />
       <ScrollToTop />
       <Routes>
