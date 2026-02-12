@@ -39,13 +39,13 @@ const SinglePost = () => {
   }, [slug]);
 
   // Updated check: If not loading and still no post, it prevents the "stuck" black screen
-  if (loading) return <div className="min-h-screen bg-[#1a1a1a] flex items-center justify-center text-white">Loading...</div>;
+  if (loading) return <div className="min-h-screen  flex items-center justify-center text-white">Loading...</div>;
   
-  if (!post && !loading) return <div className="min-h-screen bg-[#1a1a1a] flex items-center justify-center text-white">Post not found.</div>;
+  if (!post && !loading) return <div className="min-h-screen  flex items-center justify-center text-white">Post not found.</div>;
 
   return (
     
-    <div className="bg-[#1a1a1a] min-h-screen text-white">
+    <div className=" min-h-screen text-white">
       <div className="max-w-[100%] mx-auto p-4 md:p-10">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8">
           
@@ -53,22 +53,22 @@ const SinglePost = () => {
           <div className="lg:col-span-8 space-y-6">
             
             {/* 1. Post Title Card */}
-            <div className="bg-[#373434] py-6 rounded-lg border border-gray-700 text-center shadow-xl">
+            <div className=" py-6 rounded-lg border border-gray-700 text-center shadow-xl">
               <h1 className="text-4xl md:text-[3.5rem] leading-relaxed" 
                   dangerouslySetInnerHTML={{ __html: post.title.rendered }} />
             </div>
 
             {/* 2. Meta Info Bar (Responsive) */}
             <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-              <div className="bg-[#373434] p-4 rounded border border-gray-700 text-center">
+              <div className=" p-4 rounded border border-gray-700 text-center">
                 <span className="text-gray-400 block text-xs uppercase mb-1">Date</span>
                 <span className="font-medium">{dayjs(post.date).format("DD MMM, YYYY")}</span>
               </div>
-              <div className="bg-[#373434] p-4 rounded border border-gray-700 text-center">
+              <div className=" p-4 rounded border border-gray-700 text-center">
                 <span className="text-gray-400 block text-xs uppercase mb-1">Category</span>
                 <span className="font-medium">{post._embedded?.['wp:term']?.[0]?.[1]?.name || post._embedded?.['wp:term']?.[0]?.[0]?.name || "Uncategorized"}</span>
               </div>
-              <div className="bg-[#373434] p-4 rounded border border-gray-700 text-center">
+              <div className=" p-4 rounded border border-gray-700 text-center">
                 <span className="text-gray-400 block text-xs uppercase mb-1">Writer</span>
                 <span className="font-medium uppercase">{post._embedded?.author?.[0]?.name || "Aaina e Iqbal"}</span>
               </div>
