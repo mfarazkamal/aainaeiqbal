@@ -1,35 +1,100 @@
+import { useEffect, useRef } from "react";
 import { Link } from "react-router-dom";
+import gsap from "gsap";
 
 function Hero() {
-  return (
-    <section className="p-6 md:p-6 text-white mb-8">
-      <div className="max-w-7xl mx-auto">
-        {/* Top Section: Heading and First Card */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
-          {/* Right Side: Site Name and Tagline (Order changed for Desktop) */}
-          <div className="md:order-2 flex flex-col gap-8 justify-center items-center md:items-end md:text-right">
-            <h1 className="text-6xl w-full text-center md:text-[10rem] mb-2">
-              آئینۂ اقبال
-            </h1>
-            <p className="text-sm w-full text-center bg-zinc-800 py-4 rounded-md font-semibold md:text-xl tracking-widest uppercase opacity-80">
-              Reflection of Knowledge Towards Reality
-            </p>
-            <div className="flex flex-col md:flex-row justify-center w-full gap-4">
-              <button className="bg-[#2a2a2a] hover:bg-[#1a1a1a] transition-colors py-3 px-12 rounded cursor-pointer text-xl border border-gray-600">
-                <Link target="_blank" to="https://forms.gle/fPxL99bGU8dGKSqYA">
-                  Contributor's / معاون
-                </Link>
-              </button>
-              <button className="bg-[#2a2a2a] hover:bg-[#1a1a1a] transition-colors py-3 px-12 rounded cursor-pointer text-xl border border-gray-600">
-                <Link to="/posts">Posts / پوسٹز</Link>
-              </button>
-            </div>
-          </div>
+  const sectionRef = useRef(null);
+  const titleRef = useRef(null);
+  const taglineRef = useRef(null);
+  const btnsRef = useRef(null);
+  const card1Ref = useRef(null);
+  const card2Ref = useRef(null);
+  const card3Ref = useRef(null);
+  const bioLinkRef = useRef(null);
 
-          {/* Left Side: First Card (Main intro) */}
-          <div className="md:order-1 bg-[#545454] p-8 rounded-lg shadow-lg">
-            <p className="text-right text-xl md:text-3xl leading-12 dir-rtl">
-              <span className="bg-zinc-800 pb-1 ml-3 rounded px-2">مقصد </span>
+  useEffect(() => {
+    const els = [
+      titleRef.current,
+      taglineRef.current,
+      btnsRef.current,
+      card1Ref.current,
+      card2Ref.current,
+      card3Ref.current,
+      bioLinkRef.current,
+    ].filter(Boolean);
+
+    gsap.set(els, { opacity: 0, y: 25 });
+
+    const tl = gsap.timeline({ delay: 0.15 });
+
+    tl.to(titleRef.current, {
+      opacity: 1, y: 0, duration: 0.6, ease: "power3.out",
+    })
+    .to(taglineRef.current, {
+      opacity: 1, y: 0, duration: 0.5, ease: "power3.out",
+    }, "-=0.35")
+    .to(btnsRef.current, {
+      opacity: 1, y: 0, duration: 0.5, ease: "power3.out",
+    }, "-=0.3")
+    .to(card1Ref.current, {
+      opacity: 1, y: 0, duration: 0.5, ease: "power3.out",
+    }, "-=0.2")
+    .to(card2Ref.current, {
+      opacity: 1, y: 0, duration: 0.5, ease: "power3.out",
+    }, "-=0.3")
+    .to(card3Ref.current, {
+      opacity: 1, y: 0, duration: 0.5, ease: "power3.out",
+    }, "-=0.2")
+    .to(bioLinkRef.current, {
+      opacity: 1, y: 0, duration: 0.4, ease: "power3.out",
+    }, "-=0.2");
+
+    return () => tl.kill();
+  }, []);
+
+  return (
+    <section ref={sectionRef} className="px-4 md:px-6 pt-4 pb-10 text-white">
+      <div className="max-w-7xl mx-auto">
+
+        {/* ── Title Area ── */}
+        <div className="text-center mb-10 md:mb-14">
+          <h1
+            ref={titleRef}
+            className="navbar-logo text-7xl md:text-9xl leading-tight mb-4 select-none"
+          >
+            آئینۂ اقبال
+          </h1>
+          <p
+            ref={taglineRef}
+            className="text-[#C8A961]/70 text-xs md:text-base tracking-[0.3em] uppercase"
+          >
+            Reflection of Knowledge Towards Reality
+          </p>
+
+          {/* CTA Buttons */}
+          <div ref={btnsRef} className="flex flex-col sm:flex-row justify-center gap-4 mt-8">
+            <Link
+              target="_blank"
+              to="https://forms.gle/fPxL99bGU8dGKSqYA"
+              className="border border-[#C8A961]/30 text-[#C8A961] px-8 py-3 rounded-lg text-base tracking-wider hover:bg-[#C8A961]/10 hover:border-[#C8A961]/50 transition-all duration-300"
+            >
+              Contributor's / معاون
+            </Link>
+            <Link
+              to="/posts"
+              className="bg-[#C8A961]/10 border border-[#C8A961]/30 text-[#C8A961] px-8 py-3 rounded-lg text-base tracking-wider hover:bg-[#C8A961]/20 hover:border-[#C8A961]/50 transition-all duration-300"
+            >
+              پوسٹز / Posts
+            </Link>
+          </div>
+        </div>
+
+        {/* ── Content Cards ── */}
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
+          {/* Card 1: مقصد */}
+          <div ref={card1Ref} className="hero-card post-card rounded-xl p-6 md:p-8">
+            <h3 className="text-[#C8A961] text-xl md:text-3xl mb-4 text-right">مقصد</h3>
+            <p className="text-gray-300 text-right text-lg md:text-3xl leading-10 md:leading-12" style={{ direction: "rtl" }}>
               بر صغیرِ ہند میں باالخصوص اور پوری دنیا میں باالعموم علامہ اقبال
               کی نظموں اور اشعار کو جو پزیرائی حاصل ہوئی ہے وہ شاید کسی اور کے
               حصے میں نہیں آئی ۔بعض لوگ مطلب اور مفہوم کو سمجھتے ہیں اور اس کا
@@ -39,16 +104,11 @@ function Hero() {
               ہیں وہ پسِ پشت رہ جاتا ہے۔
             </p>
           </div>
-        </div>
 
-        {/* Bottom Section: Two Side-by-Side Cards */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
-          {/* Card 2 */}
-          <div className="bg-[#545454] p-8 rounded-lg shadow-lg">
-            <p className="text-right text-xl md:text-3xl leading-12 dir-rtl">
-              <span className="bg-zinc-800 pb-1 ml-3 rounded px-2">
-                اس خلا کو پر کرنے کی ایک ناتواں سی سعی و کوشش{" "}
-              </span>
+          {/* Card 2: ہماری کوشش */}
+          <div ref={card2Ref} className="hero-card post-card rounded-xl p-6 md:p-8">
+            <h3 className="text-[#C8A961] text-xl md:text-3xl mb-4 text-right">اس خلا کو پر کرنے کی ایک ناتواں سی سعی و کوشش</h3>
+            <p className="text-gray-300 text-right text-lg md:text-3xl leading-10 md:leading-12" style={{ direction: "rtl" }}>
               اشعار کی تشریح اقبالیات کے ماہرین ،جن میں پروفیسریوسف سلیم چشتی
               صاحب ، عارف بتالوی ،ڈاکٹر خواجہ حمیدیزدانی ، ڈاکٹر سلیم اختر صاحب
               وغیرہ کی کتابوں اور آرا٫ کی روشنی میں کی گئی ہے۔اللہ سے دعا ہے کہ
@@ -56,32 +116,30 @@ function Hero() {
               انجام تک پہونچانے میں مدد فرمائے۔ آمین
             </p>
           </div>
-
-          {/* Card 3 */}
-          <div className="bg-[#545454] p-8 rounded-lg shadow-lg">
-            <p className="text-right text-xl md:text-3xl leading-12 dir-rtl">
-              <span className="bg-zinc-800 pb-1 ml-3 rounded px-2">
-                اس وقت صورتِ حال یہ ہے کہ{" "}
-              </span>
-              علامہ کے اشعار کو ہم پڑھتے ہیں لیکن افسوس کہ ہم سمجھ نہیں پاتے اور
-              جب انکے اشعار کو سمجھنے کے لئے ہم انٹرنیٹ پر کچھ چھان بین کرتے ہیں
-              تو وہاں سے بھی ہم کو مایوس ہو کر ہی لوٹنا پڑتا ہے اورعلم کے ذخیروں
-              ( کتابوں) سے تو ہماری دلچسپی بالکل ختم ہو کر رہ گئی ہے۔
-            </p>
-          </div>
         </div>
 
-        {/* Footer Buttons */}
-        <div className="flex flex-col md:flex-row justify-center gap-4">
-          <button className="bg-[#2a2a2a] hover:bg-[#1a1a1a] transition-colors py-3 px-12 rounded cursor-pointer text-xl border border-gray-600">
-            <Link to={"/biography-allama-iqbal"}>
-              Life of Allama Iqbal / علامہ اقبال کی زندگی
-            </Link>
-          </button>
-          {/* <button className="bg-[#2a2a2a] hover:bg-[#1a1a1a] transition-colors py-3 px-12 rounded cursor-pointer text-xl border border-gray-600">
-            <Link to="/posts">Special Posts/ خصوصی پوسٹز</Link>
-          </button> */}
+        {/* Card 3: صورتِ حال */}
+        <div ref={card3Ref} className="hero-card post-card rounded-xl p-6 md:p-8 mb-8">
+          <h3 className="text-[#C8A961] text-xl md:text-3xl mb-4 text-right">اس وقت صورتِ حال یہ ہے کہ</h3>
+          <p className="text-gray-300 text-right text-lg md:text-3xl leading-10 md:leading-12" style={{ direction: "rtl" }}>
+            علامہ کے اشعار کو ہم پڑھتے ہیں لیکن افسوس کہ ہم سمجھ نہیں پاتے اور
+            جب انکے اشعار کو سمجھنے کے لئے ہم انٹرنیٹ پر کچھ چھان بین کرتے ہیں
+            تو وہاں سے بھی ہم کو مایوس ہو کر ہی لوٹنا پڑتا ہے اورعلم کے ذخیروں
+            ( کتابوں) سے تو ہماری دلچسپی بالکل ختم ہو کر رہ گئی ہے۔
+          </p>
         </div>
+
+        {/* Biography Link */}
+        <div ref={bioLinkRef} className="text-center">
+          <Link
+            to="/biography-allama-iqbal"
+            className="text-[#C8A961]/70 text-lg tracking-wider hover:text-[#C8A961] transition-colors duration-300 inline-flex items-center gap-2"
+          >
+            علامہ اقبال کی زندگی / Life of Allama Iqbal
+            <span className="text-xl">→</span>
+          </Link>
+        </div>
+
       </div>
     </section>
   );
