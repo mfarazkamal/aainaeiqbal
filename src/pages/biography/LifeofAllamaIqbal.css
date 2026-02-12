@@ -1,33 +1,54 @@
-.hayat{
-    background-color: #1a1a1a;
-    color: white;
-    padding:  0.5rem 3.5rem;
-    border: solid 0.5px white;
-    border-radius: 5px 1px 10px 50px;
+/* ─── Biography Page Styles ─── */
+
+/* Section headings from WordPress content */
+.hayat {
+    background: rgba(20, 22, 30, 0.6);
+    color: #C8A961;
+    padding: 0.6rem 2.5rem;
+    border: 1px solid rgba(200, 169, 97, 0.2);
+    border-radius: 12px;
     max-width: fit-content;
     font-size: 1.5rem;
     text-align: center;
-    margin: 2rem auto;
+    margin: 2.5rem auto;
 }
 
-.life{
+/* Body text paragraphs */
+.life {
     font-size: 2rem;
-    text-align: justify;
-    
+    text-align: right;
+    line-height: 2;
 }
 
-.moti{
-    background-color: maroon;
-    color: white;
-    width: 40%;
+/* Highlight / quote blocks */
+.moti {
+    background: rgba(200, 169, 97, 0.06);
+    color: #F5EDE0;
+    width: auto;
+    max-width: fit-content;
     margin: 2rem auto;
-    border-radius: 0 500px;
+    border-radius: 12px;
     text-align: center;
     font-size: 1.8rem;
-    border: solid 0.5px white;
-    padding: 0.5rem 3.5rem;
+    border: 1px solid rgba(200, 169, 97, 0.15);
+    padding: 0.6rem 3rem;
 }
 
+/* Loading spinner */
+.bio-spinner {
+    width: 36px;
+    height: 36px;
+    border: 2px solid rgba(200, 169, 97, 0.15);
+    border-top-color: #C8A961;
+    border-radius: 50%;
+    animation: bioSpin 0.8s linear infinite;
+}
+
+@keyframes bioSpin {
+    to { transform: rotate(360deg); }
+}
+
+/* ─── Responsive ─── */
 @media (max-width: 768px) {
     .hayat {
         font-size: 1.2rem;
@@ -36,13 +57,11 @@
     
     .life {
         font-size: 1.5rem;
+        line-height: 1.9;
     }
     
     .moti {
-        width: 80%;
-        font-size: 1.5rem;
+        font-size: 1.4rem;
         padding: 0.5rem 2rem;
-        border-radius: 0 50px;
     }
-    
 }
