@@ -38,6 +38,7 @@ function App() {
   const { isReady, progress } = usePreloader(posts.length > 0);
 
   return (
+    //for deploy this is comment
     <div>
       {!splashDone && (
         <SplashScreen
