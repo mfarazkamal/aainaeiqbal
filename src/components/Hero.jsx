@@ -53,7 +53,7 @@ function Hero() {
   }, []);
 
   return (
-    <section ref={sectionRef} className="px-4 md:px-6 pt-4 pb-10 text-white">
+    <section ref={sectionRef} className="px-4 md:px-6 pt-4 pb-6 text-white">
       <div className="max-w-7xl mx-auto">
 
         {/* ── Title Area ── */}
