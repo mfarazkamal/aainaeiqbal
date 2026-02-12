@@ -56,7 +56,8 @@ function PostCard({ posts }) {
                 {/* Content */}
                 <div className="p-4 flex flex-col gap-3">
                   {/* Title */}
-                  <Link to={`/post/${post.slug}`}>
+                  <div className="flex justify-between items-center">
+                    <Link to={`/post/${post.slug}`}>
                     <h3
                       className="text-[#F5EDE0] text-2xl leading-snug hover:text-[#C8A961] transition-colors duration-300 line-clamp-2"
                       dangerouslySetInnerHTML={{ __html: post.title.rendered }}
@@ -67,6 +68,8 @@ function PostCard({ posts }) {
                   <p className="text-gray-400 text-base leading-relaxed line-clamp-2">
                     {sanitizeExcerpt(post.excerpt.rendered)}
                   </p>
+                    
+                  </div>
 
                   {/* Bottom: Date + Read link */}
                   <div className="flex justify-between items-center mt-auto pt-2">
